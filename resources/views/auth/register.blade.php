@@ -64,13 +64,13 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('User Type') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('type') ? ' is-invalid' : '' }}" name="type" value="{{ old('type') }}" required autofocus>
 
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('type') }}</strong>
-                                    </span>
-                                @endif
+                                <select class="form-control" id="type" name="type" >
+                                    <option value="user">user</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="super_admin">Supera_dmin</option>
+
+                                </select>
                             </div>
                         </div>
 
