@@ -16,9 +16,18 @@ class CheckPermission
     public function handle($request, Closure $next)
     {
         if($request->user()===null){
-            return response("Insufficient permission");
+            return response("Insufficient permission",401);
         }
-        
-        return $next($request);
+
+        $action = $request->route()->getAction();
+
+        $roles  = isset($action['roles'])? $action['roles']:null;
+
+        if($request->user()->hasAnyRole($roles)){
+            return $next($request);
+        }
+
+        return response("Insufficient permission",401);
+
     }
 }

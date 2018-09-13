@@ -13,8 +13,38 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <table style="border:1px solid gray;text-align: center">
+                        <thead>
+                        <tr style="border:1px solid gray;text-align: center">
+                            <td>Name</td>
+                            <td>Email</td>
+                            <td>Type</td>
+                            <td>User</td>
+                            <td>Admin</td>
+                            <td>Supar Admin</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($users as $user)
+                            <tr style="border:1px solid gray;text-align: center">
+                            <td>{{$user->name}}</td>
+                            <td>{{$user->email}}</td>
+                            <td>{{$user->type}}</td>
+                            <td>
+                                <input type="checkbox" {{$user->haseRole('user')?"checked":""}}>
+                            </td>
+                             <td>
+                                <input type="checkbox" {{$user->haseRole('admin')?"checked":""}} name="user_admin" >
+                             </td>
 
-                    You are logged in!
+                             <td>
+                                 <input type="checkbox" {{$user->haseRole('super_admin')?"checked":""}} name="user_auper_admin">
+                             </td>
+
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
