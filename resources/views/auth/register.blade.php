@@ -66,9 +66,9 @@
                             <div class="col-md-6">
 
                                 <select class="form-control" id="type" name="type" >
-                                    <option value="user">user</option>
-                                    <option value="admin">Admin</option>
-                                    <option value="super_admin">Supera_dmin</option>
+                                    <option value="user">Regular</option>
+                                    <option value="admin">Premium</option>
+                                    <option value="super_admin">Pro</option>
 
                                 </select>
                             </div>
